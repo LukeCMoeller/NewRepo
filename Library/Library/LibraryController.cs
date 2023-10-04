@@ -12,7 +12,8 @@ namespace Library
         private List<BookModel> _books = new List<BookModel>();
         public BookModel currentBook;
         public RequestBook RB;
-        public LibraryController(RequestBook rb)
+        public updatebppl UB;
+        public LibraryController(RequestBook rb, updatebook ub)
         {
             RB = rb;
             string filePath = Path.GetFullPath("Library.txt");
@@ -21,11 +22,12 @@ namespace Library
                 StreamReader sr = new StreamReader(filePath);
                 while (!sr.EndOfStream)
                 {
-                    string[] Books = sr.ReadLine().Split(' ');
+                    string[] Books = sr.ReadLine().Split(',');
                     _books.Add(new BookModel(Books[0], Books[1], Books[2]));
                 }
+                //63w6 
                 sr.Close();
-            }
+            }   
         }
         public void addBookmark(int b)
         {
@@ -36,21 +38,15 @@ namespace Library
             _books[_books.IndexOf(currentBook)].RemoveBookmark(b); //grabs teh current book and removes a bookmark
  
         }
-        public void addBook(BookModel Book)
-        {
-            _books.Add(Book);
-        }
-        public void removeBook(BookModel Book)
-        {
-            _books.Remove(Book);
-        }
         public void synchronize()
         {
             //grabs books from .txt file the update _books
             RB(_books);    
         }
-
-
+        public void updateBook()
+        {
+            
+        }
 
     }
 }

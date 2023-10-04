@@ -46,5 +46,9 @@ namespace Library
         {
 
         }
+        public void openbook(BookModel m)
+        {
+            BookView n = new BookView(m);
+        }
     }
 }

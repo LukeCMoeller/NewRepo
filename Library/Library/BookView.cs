@@ -8,17 +8,21 @@ namespace Library
 {
     public class BookView
     {
-        public BookView()
+        private BookModel _book;
+        public BookView(BookModel b)
         {
-
-        }
-        public void displayBook()
-        {
+            _book = b;
+            //does everything
 
         }
         public void handleActions()
         {
 
         }
+        public void updatebook(BookModel m)
+        {
+
+        }
+
     }
 }

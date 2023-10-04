@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,10 @@ namespace Library
     {
         private List<BookModel> _books = new List<BookModel>();
         public BookModel currentBook;
-        public LibraryController()
+        public RequestBook RB;
+        public LibraryController(RequestBook rb)
         {
+            RB = rb;
             string filePath = Path.GetFullPath("Library.txt");
             if (File.Exists(filePath))
             {
@@ -43,8 +46,11 @@ namespace Library
         }
         public void synchronize()
         {
-            //doing know what this does
+            //grabs books from .txt file the update _books
+            RB(_books);    
         }
+
+
 
     }
 }

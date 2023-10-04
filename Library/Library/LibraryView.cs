@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    public delegate void RequestBook(List<BookModel> Lbook); 
     public class LibraryView
     {
+        private List<BookModel> _booksView = new List<BookModel>();
         public LibraryView()
         {
             Console.WriteLine("Welcome to the Mini-Kindle app.");
@@ -29,6 +31,10 @@ namespace Library
                 }
             }
 
+        }
+        public void UpdateBooks(List<BookModel> LBook)
+        {
+            _booksView = LBook;
         }
 
         public void displayLibrary()
